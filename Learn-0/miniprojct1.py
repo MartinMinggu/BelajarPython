@@ -8,7 +8,7 @@ print("initial todos")
 print(todos)
 print("end todos")
 while True:
-    print("\n1.Tambah\n2.Lihat\n3.Keluar dan simpan\n4.delete semua data")
+    print("\n1.Tambah\n2.Lihat\n3.Keluar dan simpan\n4.delete semua data\n5.delete satu data by indeks")
     pilih = input("pilih: ")
     if pilih=="1":
         tugas = input("masukan tugas: ")
@@ -26,3 +26,6 @@ while True:
         with open("todos.txt", "w")as f:
             for i, t in enumerate(todos):
                 f.write(f"{t}\n")
+    elif pilih == "5":
+        indeks = int(input("masukan indeks: "))
+        todos.pop(indeks)

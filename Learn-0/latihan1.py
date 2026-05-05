@@ -40,3 +40,52 @@
 #     print("tidak bisa dibagi nol")
 # except:
 #     print("input tidak valid")
+
+
+# latihan 7: sistem login sederhana
+
+# users = {
+#     "admin" : "123",
+#     "budi" : "abc"
+# }
+
+# nama = input("masukan nama: ")
+# password = input("masukan password: ")
+
+
+# if nama in users and users[nama] == password:
+#     print(f"{nama} berhasil login")
+# else:
+#     print("login gagal")
+
+
+# latihan 8 : tebak angka game
+# import random
+# angka_rahasia = random.randint(1,100);
+# prev_tebakan_max = 100;
+# prev_tebakan_min = 0;
+# while True:
+
+#     tebakan = int(input(f"masukan angka ({prev_tebakan_min}-{prev_tebakan_max}): "))
+#     if tebakan < angka_rahasia:
+#         print("tebakan anda lebih kecil")
+#         prev_tebakan_min = tebakan
+#     elif tebakan > angka_rahasia:
+#         print("tebakan anda lebih besar")
+#         prev_tebakan_max = tebakan
+#     else:
+#         print("tebakan anda benar")
+#         break
+
+# latihan 9: sistem login sederhana
+# users ={}
+# with open("users.txt", "r")as f:
+#     for line in f:
+#         username, password = line.strip().split(",")
+#         users[username] = password
+# username = input("masukan username: ") 
+# password = input("masukan password: ") 
+# if username in users and users[username] == password:
+#     print(f"login berhasil sebagai {username}")
+# else:
+#     print("login gagal")

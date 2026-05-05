@@ -1,6 +1,12 @@
 todos = []
 with open("todos.txt", "r") as f:
-    todos.append(f.read())
+    for line in f:
+        cleaned_line = line.strip()
+        if cleaned_line:
+            todos.append(cleaned_line)
+print("initial todos")
+print(todos)
+print("end todos")
 while True:
     print("\n1.Tambah\n2.Lihat\n3.Keluar dan simpan\n4.delete semua data")
     pilih = input("pilih: ")
@@ -17,3 +23,6 @@ while True:
             break
     elif pilih == "4":
         todos = []
+        with open("todos.txt", "w")as f:
+            for i, t in enumerate(todos):
+                f.write(f"{t}\n")

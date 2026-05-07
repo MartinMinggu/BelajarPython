@@ -17,7 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from book.views import book_list, book_api, book_detail, book_create
 from student.views import student_list
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from book.views import BookViewSet
+
 # from product.views import product_list
+router = DefaultRouter()
+router.register(r'books', BookViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +32,6 @@ urlpatterns = [
     path('api/books/', book_api),
     path('api/books/<int:id>/', book_detail),
     path('api/books/create', book_create),
+    path('api/v2/', include(router.urls)),
     # path('product/', product_list),
 ]

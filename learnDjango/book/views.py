@@ -53,3 +53,9 @@ def book_create(request):
             serializer.save()
             return Response(serializer.data)
       return Response(serializer.errors)
+
+from .serializer import BookSerializer
+from rest_framework.viewsets import ModelViewSet
+class BookViewSet(ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer

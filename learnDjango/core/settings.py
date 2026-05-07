@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'product',
     'student',
     'book',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

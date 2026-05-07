@@ -1,0 +1,12 @@
+### CREATE BOOK
+POST http://127.0.0.1:8000/api/books/create
+Content-Type: application/json
+
+{
+    "title": "Belajar Django",
+    "author": "Budi",
+    "description": "Buku pemula",
+    "price": 12727,
+    "published_date": "2024-01-01",
+    "total_page": 100
+}

@@ -1,0 +1,7 @@
+<h1>Daftar Siswa</h1>
+{% for student in students  %}
+   <hr>
+    <h2>{{student.fisrt_name}} {{student.last_name}}</h2>
+    <p>{{student.age}}</p>
+    <p>{{student.address}}</p>
+{% endfor %}

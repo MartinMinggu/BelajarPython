@@ -98,3 +98,32 @@ silakan run ulang
 
 
 
+-- menambahkan template atau menghasilkan r http://127.0.0.1:8000/books/ tapi berupa html
+
+
+buat folder baru bernama templates di book, lalu buat file book_list.html
+dan isi dengan 
+<h1>Daftar Buku</h1>
+<hr>
+{% for book in books %}
+    <h3>{{book.author}}</h3>
+    <p>{{book.title}}</p>
+    <p>{{book.price}}</p>
+    <hr>
+    {% endfor %}
+
+
+logicnya mirip dotnet atau jsp di java
+
+
+lalu ubah book/views.py untuk fungsi tadi jadi render
+
+from django.shortcuts import render
+from .models import Book
+# Create your views here.
+def book_list(request):
+    books   = Book.objects.all()
+    context = {
+        'books' : books
+    }
+    return render(request, 'book_list.html', context)

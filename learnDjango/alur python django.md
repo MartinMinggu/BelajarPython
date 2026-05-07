@@ -58,3 +58,43 @@ python manage.py runserver
 
 akan muncul di 
 http://127.0.0.1:8000/admin/
+
+
+
+
+membuat view dengan hasil akhir http://127.0.0.1:8000/books/
+ke file book/views.py
+
+isi dengan code ini
+""" py
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Book
+# Create your views here.
+def book_list(request):
+    books   = Book.objects.all()
+    text    = ""
+    for book in books:
+        text += book.title + "<br>"
+    return HttpResponse(text)
+
+
+"""
+
+
+fungsi diatas akan menampilkan semua data buku yang ada di database
+
+-- tambahkan routing ke file core/urls.py
+import fungsinya from books.views import book_list
+tambhkan ke url pattern
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    path('books/', book_list),
+]
+
+
+silakan run ulang
+
+
+

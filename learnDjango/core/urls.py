@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from book.views import book_list, book_api, book_detail, book_create
+from accounts.views import RegisterView
 from student.views import student_list
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 from book.views import BookViewSet
 
 # from product.views import product_list
@@ -33,5 +35,6 @@ urlpatterns = [
     path('api/books/<int:id>/', book_detail),
     path('api/books/create', book_create),
     path('api/v2/', include(router.urls)),
-    # path('product/', product_list),
+    path('api/register/', RegisterView.as_view(), name='auth_register'),
+    path('api/login/', obtain_auth_token, name='auth_login'),    # path('product/', product_list),
 ]
